@@ -7,6 +7,7 @@ use App\AlbumType;
 use App\Contracts\ElementConfig;
 use App\DetailPackage;
 use App\HtmlElement;
+use App\Import;
 use App\Package;
 use App\Product;
 use App\OrderProduct;
@@ -25,6 +26,7 @@ class SaleController extends Controller
         $orders = Order::with('products')->get();
         $products = Product::all();
         $totalImportPrice = $products->sum('import_price');
+        $totalAllImportPrice = Import::all()->sum('price');
         $totalProduct = Product::all()->count();
         $totalProductSold = Product::where('status', 'SOLD')->count();
         $totalProductAvailable = Product::where('status', 'AVAILABLE')->count();
@@ -55,13 +57,14 @@ class SaleController extends Controller
         'totalOrderNew',
         'typeProductAvailable',
         'typeProductSold',
+        'totalAllImportPrice',
         'totalOrderNewPrice'));
     }
 
 
     public function products()
     {
-        $products = Product::with('sizes')->orderBy('status')->orderBy('id')->get();
+        $products = Product::with('sizes')->orderBy('status')->orderBy('id', 'DESC')->get();
     
         return view('sale.products' , compact('products'));
     }

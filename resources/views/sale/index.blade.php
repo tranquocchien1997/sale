@@ -22,6 +22,7 @@
                             Total Product Available: {{$totalProductAvailable}} - {{$typeProductAvailable}} <br>
                         </div>
                         <div class="col">
+                        Total All Import Price: {{number_format($totalAllImportPrice)}}đ <br>
                         Total Import Price: {{number_format($totalImportPrice)}}đ <br>
                         Total Order: {{$totalOrder}} <br>
                         Total Order Price: {{number_format($totalPrice)}}đ <br>

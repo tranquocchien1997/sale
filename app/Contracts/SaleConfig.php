@@ -10,7 +10,7 @@ interface SaleConfig {
 
    const PRODUCT_KEY_TYPES = [
     'TROUSERS' => 'TS',
-    'HARRINGTON_JACKET' => 'JK',
+    'HARRINGTON_JACKET' => 'HJ',
     'SHIRT' => 'ST',
 ];
 
